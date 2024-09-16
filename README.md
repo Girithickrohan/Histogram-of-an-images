@@ -46,7 +46,7 @@ plt.title('Color Image')
 
 plt.show()
 ```
-![image]()
+![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155529.png)
 
 ### Histogram of Grayscale Image and any channel of Color Image
 ```
@@ -65,7 +65,7 @@ plt.ylabel("Pixel Count")
 plt.stem(gray_hist)
 plt.show()
 ```
-![image]()
+![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155559.png)
 
 ```
 import matplotlib.pyplot as plt
@@ -82,7 +82,7 @@ plt.show()
 
 ```
 
-![image]()
+![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155616.png)
 
 ### Histogram Equalization of Grayscale Image.
 ```
@@ -102,7 +102,7 @@ plt.title('Equalized Image')
 plt.show()
 ```
 
-![image]()
+![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155628.png)
 
 ## Result: 
 Thus the histogram for finding the frequency of pixels in an image with pixel values ranging from 0 to 255 is obtained. Also,histogram equalization is done for the gray scale image using OpenCV.
