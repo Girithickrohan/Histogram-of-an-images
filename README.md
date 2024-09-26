@@ -21,88 +21,112 @@ Use calcHist() function to mark the image in graph frequency for gray and color 
 ### Step5:
 The Histogram of gray scale image and color image is shown.
 
-
 ## Program:
 #### Developed By: GIRITHICK ROHAN N
 #### Register Number: 212223230063
 
-### Input Grayscale Image and Color Image
+### Histogram for Bright Image
 ```
 import cv2
-import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import pyplot as plt
 
-gray_image = cv2.imread("dog.jpg")
-color_image = cv2.imread("cat.jpg", -1)
+# Load the color image
+image = cv2.imread('Bright.jpg')
 
-color_image_rgb = cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB)
+# Convert the image to grayscale
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-plt.subplot(1, 2, 1)
+hist_original = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
+
+# Apply histogram equalization
+equalized_image = cv2.equalizeHist(gray_image)
+
+# Plotting the original grayscale image, equalized image, and histograms
+plt.figure(figsize=(10, 7))
+
+# Show original grayscale image
+plt.subplot(2, 2, 1)
 plt.imshow(gray_image, cmap='gray')
-plt.title('Gray Image')
+plt.title('Original Grayscale Image')
+plt.axis('off')
 
-plt.subplot(1, 2, 2)
-plt.imshow(color_image_rgb)
-plt.title('Color Image')
-
-plt.show()
-```
-![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155529.png)
-
-### Histogram of Grayscale Image and any channel of Color Image
-```
-import cv2
-Gray_image = cv2.imread("dog.jpg")
-Color_image = cv2.imread("cat.jpg")
-import matplotlib.pyplot as plt
-gray_hist = cv2.calcHist([Gray_image],[0],None,[256],[0,256])
-color_hist = cv2.calcHist([Color_image],[0],None,[256],[0,256])
-plt.figure()
-plt.imshow(Gray_image)
-plt.show()
-plt.title("Histogram")
-plt.xlabel("Grayscale Value")
-plt.ylabel("Pixel Count")
-plt.stem(gray_hist)
-plt.show()
-```
-![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155559.png)
-
-```
-import matplotlib.pyplot as plt
-
-plt.imshow(Color_image)
-plt.title("Color Image")
-plt.show()
-
-plt.title("Histogram of Color Image - Green Channel")
-plt.xlabel("Intensity Value")
-plt.ylabel("Pixel Count")
-plt.stem(color_hist)
-plt.show()
-
-```
-
-![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155616.png)
-
-### Histogram Equalization of Grayscale Image.
-```
-import cv2
-import matplotlib.pyplot as plt
-
-gray_image = cv2.imread("dog.jpg", 0)
-
-plt.imshow(gray_image, cmap='gray')
-plt.title('Grey Scale Image')
-plt.show()
-
-equ = cv2.equalizeHist(gray_image)
-
-plt.imshow(equ, cmap='gray')
+# Show equalized grayscale image
+plt.subplot(2, 2, 2)
+plt.imshow(equalized_image, cmap='gray')
 plt.title('Equalized Image')
+plt.axis('off')
+
+# Plot histogram of the original grayscale image
+plt.subplot(2, 2, 3)
+plt.plot(hist_original, color='black')
+plt.title('Original Histogram')
+plt.xlim([0, 256])
+
+# Plot histogram of the equalized image
+plt.subplot(2, 2, 4)
+hist_equalized = cv2.calcHist([equalized_image], [0], None, [256], [0, 256])
+plt.plot(hist_equalized, color='black')
+plt.title('Equalized Histogram')
+plt.xlim([0, 256])
+
+plt.tight_layout()
 plt.show()
 ```
+## OUTPUT:
 
-![image](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/main/Screenshot%202024-09-16%20155628.png)
+![img]()
+
+## Histogram for Dark Image
+```
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Load the color image
+image = cv2.imread('Dark.jpg')
+
+# Convert the image to grayscale
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Apply histogram equalization
+equalized_image = cv2.equalizeHist(gray_image)
+
+# Plotting the original grayscale image, equalized image, and histograms
+plt.figure(figsize=(10, 7))
+
+# Show original grayscale image
+plt.subplot(2, 2, 1)
+plt.imshow(gray_image, cmap='gray')
+plt.title('Original Grayscale Image')
+plt.axis('off')
+
+# Show equalized grayscale image
+plt.subplot(2, 2, 2)
+plt.imshow(equalized_image, cmap='gray')
+plt.title('Equalized Image')
+plt.axis('off')
+
+# Plot histogram of the original grayscale image
+plt.subplot(2, 2, 3)
+hist_original = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
+plt.plot(hist_original, color='black')
+plt.title('Original Histogram')
+plt.xlim([0, 256])
+
+# Plot histogram of the equalized image
+plt.subplot(2, 2, 4)
+hist_equalized = cv2.calcHist([equalized_image], [0], None, [256], [0, 256])
+plt.plot(hist_equalized, color='black')
+plt.title('Equalized Histogram')
+plt.xlim([0, 256])
+
+plt.tight_layout()
+plt.show()
+```
+## OUTPUT:
+
+![img]()
 
 ## Result: 
 Thus the histogram for finding the frequency of pixels in an image with pixel values ranging from 0 to 255 is obtained. Also,histogram equalization is done for the gray scale image using OpenCV.
