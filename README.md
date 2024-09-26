@@ -75,7 +75,7 @@ plt.show()
 ```
 ## OUTPUT:
 
-![img]()
+![img](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/refs/heads/main/Screenshot%202024-09-26%20154806.png)
 
 ## Histogram for Dark Image
 ```
@@ -126,7 +126,7 @@ plt.show()
 ```
 ## OUTPUT:
 
-![img]()
+![img](https://raw.githubusercontent.com/Girithickrohan/Histogram-of-an-images/refs/heads/main/Screenshot%202024-09-26%20154927.png)
 
 ## Result: 
 Thus the histogram for finding the frequency of pixels in an image with pixel values ranging from 0 to 255 is obtained. Also,histogram equalization is done for the gray scale image using OpenCV.
